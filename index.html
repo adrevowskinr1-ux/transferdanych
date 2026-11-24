@@ -2,406 +2,201 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#090f1d">
-  <meta name="description" content="Przesyłaj pliki i filmy bezpośrednio między komputerem a telefonem. Bez logowania i przechowywania plików w chmurze.">
-  <title>BanSwap Transfer — komputer ↔ telefon</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080d1a">
+  <meta name="description" content="BanSwap Transfer – przenoszenie plików między komputerem a telefonem przez internet, także LTE.">
+  <title>BanSwap Transfer — przez internet i LTE</title>
   <style>
-    :root {color-scheme:dark;--bg:#080d1a;--panel:#101a2d;--line:#26364d;--white:#f4f7fd;--muted:#9eacc1;--green:#55edb3;--blue:#70b9ff;--red:#ff8592}
-    *{box-sizing:border-box}html{min-height:100%;scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(ellipse 65% 48% at 50% -10%,#1b3d60 0%,transparent 70%),var(--bg)}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.43;cursor:not-allowed}a{color:inherit}.wrap{width:min(930px,calc(100% - 34px));margin:0 auto;padding:26px 0 58px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.logo{font-weight:850;letter-spacing:-.05em;font-size:20px}.logo span{color:var(--green)}.pill{border:1px solid #345268;background:#10273b;color:#b5e7ef;padding:8px 12px;border-radius:100px;font-size:12px;font-weight:650}.hero{text-align:center;padding:64px 0 34px}.eyebrow{color:var(--green);font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:800}.hero h1{font-size:clamp(36px,5.4vw,61px);line-height:1.07;letter-spacing:-.062em;margin:13px auto 16px;max-width:720px}.hero h1 span{color:var(--green)}.hero p{color:var(--muted);font-size:16px;line-height:1.7;max-width:650px;margin:auto}.panel{background:linear-gradient(150deg,#131f34,#0d1627);border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:0 18px 56px #00000030}.choices{display:grid;grid-template-columns:1fr 1fr;gap:18px}.choice{display:flex;flex-direction:column;align-items:flex-start;gap:11px;text-align:left;transition:border-color .15s,transform .15s}.choice:hover{border-color:#4b7d90;transform:translateY(-2px)}.choice .symbol{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:#1e3c51;color:var(--green);font-size:23px}.choice h2{font-size:23px;letter-spacing:-.035em;margin:3px 0 0}.choice p{font-size:14px;line-height:1.65;margin:0 0 7px;color:var(--muted)}.choice .go{color:var(--green);font-size:14px;font-weight:800;margin-top:auto}.section{margin-top:18px}.section h2{margin:0 0 7px;font-size:24px;letter-spacing:-.035em}.sub{color:var(--muted);margin:0 0 22px;font-size:14px;line-height:1.6}.split{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.code{letter-spacing:.15em;font-weight:850;font-size:clamp(28px,5.5vw,47px);font-variant-numeric:tabular-nums;margin:8px 0 15px;overflow-wrap:anywhere}.qr{background:#fff;border-radius:13px;padding:9px;width:170px;height:170px;display:grid;place-items:center}.qr canvas,.qr img{max-width:152px;max-height:152px}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{background:var(--green);color:#062019;border:0;border-radius:13px;padding:13px 19px;font-weight:850;font-size:14px;min-height:45px}.btn:hover:enabled{filter:brightness(1.06)}.btn.secondary{color:var(--white);border:1px solid #345068;background:#192a3c}.btn.danger{background:#42212b;color:#ffd3d8}.status{display:flex;align-items:flex-start;gap:9px;color:var(--muted);font-size:14px;line-height:1.5;margin-top:18px}.dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px #70b9ff75;flex:none;margin-top:6px}.status.ok .dot{background:var(--green);box-shadow:0 0 12px #55edb375}.status.error .dot{background:var(--red);box-shadow:0 0 12px #ff859275}.inner{margin-top:19px;padding:18px;background:#0b1423;border:1px solid #2b4057;border-radius:16px}.inner h3{margin:0 0 10px;font-size:16px}.inner p{color:var(--muted);font-size:14px;margin:0 0 13px;line-height:1.6}.inputrow{display:flex;gap:10px}.codeinput{width:100%;background:#09111f;color:var(--white);outline:none;border:1px solid #3a5067;border-radius:13px;padding:13px 15px;font-weight:750;font-size:23px;text-align:center;letter-spacing:.13em;text-transform:uppercase;min-width:0}.codeinput:focus{border-color:var(--green)}.drop{border:2px dashed #37546a;border-radius:19px;padding:34px 17px;text-align:center;background:#0d1928;cursor:pointer;transition:.2s}.drop.drag{background:#183b42;border-color:var(--green)}.drop .dropicon{font-size:31px;margin-bottom:8px}.drop strong{display:block;font-size:17px}.drop span{color:var(--muted);font-size:13px;display:block;margin:7px 0 0}.filelist{display:grid;gap:10px;margin:17px 0}.fileitem{display:flex;gap:12px;align-items:center;justify-content:space-between;border:1px solid #2a3c50;background:#0c1626;border-radius:13px;padding:13px 15px;min-width:0}.fileinfo{min-width:0;flex:1}.filename{font-size:13px;font-weight:730;overflow-wrap:anywhere}.small{color:var(--muted);font-size:12px;margin-top:4px}.fileactions{display:flex;gap:7px;flex-wrap:wrap}.tinybtn{font-size:12px;border-radius:9px;padding:9px 11px;background:#173c37;color:#a6ffdf;border:1px solid #306358;text-decoration:none;font-weight:750;display:inline-block}.tinybtn.secondary{background:#1b2a42;border-color:#37516d;color:#e0edff}.progress{height:7px;background:#243349;border-radius:20px;overflow:hidden;margin-top:9px}.progress div{height:100%;background:linear-gradient(90deg,#3ccca3,#70b9ff);width:0%;transition:width .15s}.notice{border:1px solid #2a3a4e;background:#0e192b;border-radius:17px;padding:18px 20px;margin-top:20px;color:var(--muted);font-size:13px;line-height:1.7}.notice strong{color:var(--white)}.footer{text-align:center;color:#71839c;font-size:12px;padding:26px 0 0}.hidden{display:none!important}.helper{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.6}.reset{border:0;color:#b1bfd1;background:transparent;font-size:13px;text-decoration:underline;cursor:pointer;padding:5px}.headline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}.headline h2{margin:0}
-    @media(max-width:640px){.wrap{width:min(100% - 26px,930px);padding-top:19px}.hero{padding:40px 0 27px}.hero p{font-size:14px}.choices{grid-template-columns:1fr}.panel{border-radius:19px;padding:20px}.choice{gap:8px}.choice h2{font-size:20px}.split{grid-template-columns:1fr;justify-items:center;text-align:center}.qr{order:-1;width:157px;height:157px}.qr canvas,.qr img{max-width:139px;max-height:139px}.actions{justify-content:center}.inputrow{flex-direction:column}.inputrow .btn{width:100%}.headline{align-items:flex-start}.code{letter-spacing:.12em}}
+    :root{color-scheme:dark;--bg:#080d1a;--panel:#111c2e;--line:#293e52;--white:#f6f9ff;--muted:#a3b2c4;--mint:#5cf0b7;--red:#ff91a1;--blue:#7bbfff}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--white);background:radial-gradient(ellipse 72% 42% at 50% -12%,#19435c 0,transparent 78%),var(--bg)}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}a{color:var(--mint)}
+    .wrap{max-width:1000px;padding:25px 18px 65px;margin:auto}.top{display:flex;gap:12px;justify-content:space-between;align-items:center}.brand{font-size:20px;font-weight:900;letter-spacing:-.05em}.brand em{color:var(--mint);font-style:normal}.tag{font-size:12px;border:1px solid #385a67;background:#112b39;padding:9px 12px;border-radius:40px;color:#baf0e2;font-weight:700}
+    .hero{text-align:center;padding:62px 0 29px}.overline{color:var(--mint);font-size:12px;font-weight:850;letter-spacing:.19em}.hero h1{font-size:clamp(34px,5.6vw,60px);letter-spacing:-.07em;line-height:1.08;margin:14px 0 16px}.hero h1 strong{color:var(--mint)}.hero p{color:var(--muted);line-height:1.65;font-size:16px;max-width:720px;margin:0 auto}
+    .panel{background:linear-gradient(135deg,#14233a,#0e1828);border:1px solid var(--line);border-radius:23px;padding:25px;box-shadow:0 16px 50px #0003;margin-top:19px}.panel h2{margin:0 0 10px;font-size:23px;letter-spacing:-.045em}.panel h3{margin:0 0 12px;font-size:16px}.muted{color:var(--muted);line-height:1.65;font-size:14px}.small{font-size:12px}.hidden{display:none!important}
+    .status{display:flex;align-items:center;gap:10px;margin:16px 0 0;line-height:1.55;color:var(--muted);font-size:14px}.dot{height:9px;width:9px;flex-shrink:0;border-radius:100px;background:var(--blue)}.status.ok .dot{background:var(--mint)}.status.error .dot{background:var(--red)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px}.btn{border:0;padding:13px 18px;min-height:45px;background:var(--mint);border-radius:12px;color:#08251c;font-weight:850;font-size:14px}.btn.secondary{background:#1a3245;color:var(--white);border:1px solid #3b546a}.btn.ghost{background:transparent;color:var(--mint);border:1px solid #417962}.btn:hover:not(:disabled){filter:brightness(1.1)}
+    .hostgrid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:22px}.sharelink{padding:13px;background:#0b1625;border-radius:11px;border:1px solid #334a62;overflow-wrap:anywhere;font-size:12px;color:#b9d9ed;line-height:1.5;margin:12px 0}.qr{background:#fff;padding:11px;width:170px;height:170px;display:grid;place-items:center;border-radius:14px;color:#000}.qr canvas,.qr img{max-width:148px;max-height:148px}
+    .row{display:flex;gap:9px}.input{padding:13px 14px;border-radius:12px;border:1px solid #38516a;background:#091322;color:var(--white);outline:0;min-width:0;width:100%}.input:focus{border-color:var(--mint)}.input::placeholder{color:#6f849a}.box{margin-top:15px;background:#0b1525;border:1px solid #30445b;border-radius:15px;padding:17px}.box p{margin:0 0 13px}.selected{display:grid;gap:9px;margin-top:15px}.file{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 13px;border:1px solid #2b4156;background:#0b1626;border-radius:12px;min-width:0}.fname{min-width:0;flex:1;overflow-wrap:anywhere;font-size:13px;font-weight:750}.fname .muted{font-size:12px;font-weight:450}.file .btn{min-height:37px;padding:8px 12px;font-size:12px}.bar{height:8px;background:#26364c;border-radius:15px;overflow:hidden;margin:12px 0 4px}.bar>div{width:0;height:100%;background:linear-gradient(90deg,#3ccaa5,#78baff);transition:width .2s}.step{font-size:13px;color:var(--muted);margin-top:8px}.drop{border:2px dashed #3b6372;background:#0d1d2d;border-radius:16px;text-align:center;padding:32px 16px;cursor:pointer;outline:0}.drop.drag,.drop:hover{border-color:var(--mint);background:#153b39}.drop strong{display:block;font-size:17px}.drop span{display:block;color:var(--muted);font-size:13px;margin-top:8px}.steps{padding-left:22px;line-height:1.8;color:var(--muted);font-size:14px}.steps strong{color:var(--white)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.last{font-size:12px;color:#8296ae;text-align:center;padding-top:25px}
+    @media(max-width:700px){.wrap{padding:18px 13px 45px}.tag{font-size:11px}.hero{padding:47px 0 25px}.hero p{font-size:14px}.panel{padding:19px;border-radius:19px}.panel h2{font-size:21px}.grid{grid-template-columns:1fr}.hostgrid{grid-template-columns:1fr;text-align:center;justify-items:center}.qr{order:-1}.actions{justify-content:center}.row.mobile-stack{flex-direction:column}.row.mobile-stack .btn{width:100%}.file{flex-wrap:wrap}}
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <header class="top"><div class="logo">BAN<span>SWAP</span> <span style="color:#eaf2ff;font-weight:650">Transfer</span></div><div class="pill">Bez logowania · P2P</div></header>
-    <section class="hero"><div class="eyebrow">SZYBKI TRANSFER PLIKÓW</div><h1>Z komputera na telefon.<br><span>Bez kabla.</span></h1><p>Filmy, zdjęcia i dokumenty — wybierz pliki na komputerze, zeskanuj kod telefonem i odbierz je w przeglądarce.</p></section>
+<div class="wrap">
+  <header class="top"><div class="brand">BAN<em>SWAP</em> Transfer</div><div class="tag">Internet · LTE · Wi-Fi</div></header>
+  <div class="hero"><div class="overline">PRZESYŁANIE BEZ WSPÓLNEJ SIECI</div><h1>Komputer <strong>↔</strong> telefon.<br><strong>Bez kabla.</strong></h1><p>Filmy, zdjęcia i dowolne pliki w obie strony. Komputer uruchamia prywatny serwer, a telefon łączy się przez internet — również z LTE.</p></div>
 
-    <section class="choices" id="choices">
-      <button type="button" class="panel choice" id="makeRoom"><span class="symbol" aria-hidden="true">↗</span><h2>Wyślij pliki</h2><p>Otwórz na komputerze. Utwórz kod i wybierz pliki do wysłania.</p><span class="go">Utwórz kod →</span></button>
-      <button type="button" class="panel choice" id="joinView"><span class="symbol" aria-hidden="true">↙</span><h2>Odbierz pliki</h2><p>Otwórz na telefonie. Zeskanuj QR lub wpisz kod z komputera.</p><span class="go">Połącz z komputerem →</span></button>
-    </section>
+  <section class="panel hidden" id="notConnected">
+    <h2>Uruchom połączenie</h2>
+    <p class="muted">Na komputerze rozpakuj pobraną paczkę i uruchom <strong>START_WINDOWS.bat</strong>. Program otworzy stronę z kodem QR. Telefonem zeskanuj QR lub wklej tutaj cały link z komputera.</p>
+    <div class="row mobile-stack"><input class="input" id="pasteLink" placeholder="Wklej cały link skopiowany z komputera" autocomplete="off" spellcheck="false"><button class="btn" id="joinBtn">Połącz</button></div>
+    <div id="joinError" class="status hidden error"><span class="dot"></span><span id="joinErrorText"></span></div>
+  </section>
 
-    <section class="panel section hidden" id="hostSession">
-      <div class="headline"><h2>Twój kod połączenia</h2><button class="reset" type="button" data-reset>Zacznij od nowa</button></div>
-      <p class="sub">Otwórz tę stronę na telefonie i wpisz kod albo zeskanuj QR aparatem.</p>
-      <div class="split">
-        <div><div class="code" id="roomCode">········</div><div class="actions"><button type="button" class="btn" id="copyLink">Kopiuj link</button><button type="button" class="btn secondary" id="copyCode">Kopiuj kod</button></div><div class="helper">Kod jest jednorazowy. Nie udostępniaj go osobom trzecim.</div></div>
-        <div id="qr" class="qr" aria-label="Kod QR do połączenia"></div>
-      </div>
-      <div class="status" id="hostStatus"><span class="dot"></span><span id="hostStatusText">Tworzenie połączenia...</span></div>
-      <div id="approval" class="inner hidden"><h3>Telefon chce się połączyć</h3><p>Jeżeli to Twój telefon, zatwierdź połączenie. Dopiero wtedy będzie można przesyłać pliki.</p><div class="actions"><button type="button" class="btn" id="approveBtn">Zezwól</button><button type="button" class="btn danger" id="rejectBtn">Odrzuć</button></div></div>
-      <div id="senderPanel" class="inner hidden"><h3>Wybierz pliki do wysłania</h3><p>Nie zamykaj tej karty ani przeglądarki na żadnym urządzeniu do końca transferu.</p><div class="drop" id="dropzone" role="button" tabindex="0"><div class="dropicon" aria-hidden="true">↑</div><strong>Przeciągnij pliki tutaj</strong><span>albo kliknij, aby wybrać filmy, zdjęcia i inne pliki</span></div><input id="fileInput" type="file" multiple class="hidden"><div id="selectedList" class="filelist"></div><button type="button" class="btn" id="sendBtn" disabled>Wyślij pliki na telefon</button><div class="helper" id="senderHint"></div></div>
-    </section>
+  <section class="panel hidden" id="connected">
+    <h2>Połączenie z komputerem</h2>
+    <p class="muted" style="margin:0">Możesz wysyłać i odbierać pliki, nawet gdy telefon jest w innej sieci. Pliki są zapisywane w folderze <strong>pliki</strong> na komputerze-hostcie.</p>
+    <div id="status" class="status"><span class="dot"></span><span id="statusText">Sprawdzam połączenie...</span></div>
+    <div class="box hidden" id="shareBox">
+      <div class="hostgrid"><div><h3>Otwórz tę stronę na telefonie</h3><p class="muted">Zeskanuj QR aparatem lub skopiuj bezpieczny link na telefon. Link jest kluczem dostępu — nie udostępniaj go obcym.</p><div class="sharelink" id="shareLink"></div><div class="actions"><button class="btn" id="copyLink">Kopiuj link</button></div></div><div class="qr" id="qr">QR</div></div>
+    </div>
+  </section>
 
-    <section class="panel section hidden" id="guestSession">
-      <div class="headline"><h2>Odbierz na telefonie</h2><button class="reset" type="button" data-reset>Zacznij od nowa</button></div>
-      <p class="sub">Wpisz kod wyświetlony na komputerze. Urządzenia muszą mieć dostęp do internetu.</p>
-      <div class="inputrow"><input class="codeinput" id="joinCode" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" maxlength="8" placeholder="KOD 8 ZNAKÓW" aria-label="Kod połączenia"><button class="btn" type="button" id="connectBtn">Połącz</button></div>
-      <div class="status" id="guestStatus"><span class="dot"></span><span id="guestStatusText">Czekam na kod z komputera.</span></div>
-      <div id="receiverPanel" class="inner hidden"><h3>Przesłane pliki</h3><p>Po ukończeniu wybierz „Pobierz” albo „Udostępnij”, aby zapisać plik na telefonie.</p><div id="incomingList" class="filelist"><div class="helper" id="emptyIncoming">Oczekiwanie na pliki z komputera...</div></div></div>
-    </section>
+  <section class="panel hidden" id="transferPanel">
+    <h2>Wyślij pliki</h2>
+    <p class="muted">Wybierz pliki na tym urządzeniu. Po przesłaniu pojawią się na liście i będą dostępne również na drugim urządzeniu.</p>
+    <div id="dropzone" class="drop" tabindex="0" role="button"><strong>Wybierz pliki lub przeciągnij tutaj</strong><span>Filmy, zdjęcia, archiwa i dokumenty · wiele plików jednocześnie</span></div>
+    <input id="fileInput" type="file" multiple class="hidden">
+    <div class="selected" id="selected"></div>
+    <div class="actions" style="margin-top:14px"><button id="uploadBtn" class="btn" disabled>Prześlij wybrane pliki</button><button id="clearBtn" class="btn secondary" disabled>Wyczyść wybór</button></div>
+    <div class="hidden" id="progressBox"><div class="bar"><div id="progressBar"></div></div><div class="step" id="progressText"></div></div>
+  </section>
 
-    <section class="notice"><strong>Jak to działa?</strong> Pliki przechodzą przez szyfrowane połączenie WebRTC między urządzeniami, bez zapisywania ich na GitHubie. Do zestawienia połączenia służy bezpłatny serwer sygnalizacyjny PeerJS. Najlepiej działa przy podłączeniu obu urządzeń do tej samej sieci Wi-Fi. Duże filmy mogą przekroczyć pamięć przeglądarki telefonu; w razie problemów wyślij mniejsze pliki osobno.</section>
-    <footer class="footer">BanSwap Transfer · Otwarta karta na obu urządzeniach jest wymagana podczas przesyłania</footer>
-  </div>
+  <section class="panel hidden" id="downloadsPanel"><h2>Pliki do odebrania</h2><p class="muted">Pliki znajdują się na komputerze i można je pobrać na telefon lub ponownie na komputer. Lista odświeża się automatycznie.</p><div class="actions" style="margin-bottom:12px"><button class="btn secondary" id="refreshBtn">Odśwież listę</button></div><div id="fileList" class="selected"><p class="muted">Ładowanie...</p></div></section>
+
+  <section class="panel"><h2>Jak to działa?</h2><div class="grid"><div><h3>Na komputerze</h3><ol class="steps"><li>Uruchom <strong>START_WINDOWS.bat</strong>.</li><li>Program otworzy tę stronę z kodem QR.</li><li>Wybierz filmy lub zdjęcia i kliknij <strong>Prześlij</strong>.</li></ol></div><div><h3>Na telefonie</h3><ol class="steps"><li>Otwórz link z QR najlepiej w <strong>Safari</strong>.</li><li>Pobierz wysłane pliki albo wybierz własne i prześlij je na komputer.</li><li>Nie zamykaj okna komputera do końca transferu.</li></ol></div></div><p class="muted small">Połączenie korzysta z HTTPS i tymczasowego tunelu Cloudflare. GitHub Pages wyświetla interfejs; nie magazynuje plików. Cloudflare pośredniczy w przesyłaniu, a komputer przechowuje pliki. Tymczasowy tunel jest przeznaczony do zastosowań testowych i może czasami zostać rozłączony.</p></section>
+  <footer class="last">BanSwap Transfer · wersja 2.0 · telefon i komputer mogą korzystać z różnych sieci</footer>
+</div>
 <script>
-window.addEventListener("DOMContentLoaded", () => {
+(() => {
 'use strict';
-
-// BanSwap Transfer: browser-to-browser P2P transfer, no backend storage.
-// Requires PeerJS 1.5.5 loaded before this script.
-const $ = (id) => document.getElementById(id);
-const ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-const ROOM_PREFIX = 'banswap-transfer-p2p-v1-';
-const CHUNK_SIZE = 16 * 1024; // compatible with more WebRTC implementations
-const MAX_BUFFER = 256 * 1024;
-const ACK_EVERY = 256 * 1024;
-const SEND_WINDOW = 512 * 1024;
-const state = {
-  peer: null, conn: null, role: null, code: null, approved: false,
-  files: [], sending: false, incoming: null, awaiting: null,
-  sent: 0, acknowledged: 0, savedUrls: []
-};
-
-function bytesString(n) {
-  if (!Number.isFinite(n)) return '—';
-  const units = ['B','KB','MB','GB','TB'];
-  let i=0;
-  while (n >= 1024 && i < units.length-1) { n/=1024; i++; }
-  return (i ? n.toFixed(n >= 10 ? 1 : 2) : Math.round(n)) + ' ' + units[i];
+const $ = id => document.getElementById(id);
+const SITE_URL = 'https://adrewoskinr1-ux.github.io/transferdanych/';
+const LOCAL = ['127.0.0.1','localhost','::1'].includes(location.hostname);
+const state = {base:'',remote:'',key:'',files:[],busy:false, connected:false,timer:null};
+const bytes = n => {let i=0;const u=['B','KB','MB','GB','TB'];while(n>=1024&&i<u.length-1){n/=1024;i++}return (i ? n.toFixed(n>=10?1:2):n)+' '+u[i]};
+const show = (id,on) => $(id).classList.toggle('hidden',!on);
+const status = (msg, kind='') => { $('status').className='status'+(kind?' '+kind:'');$('statusText').textContent=msg; };
+const esc = s => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function linkParams(link) {const u=new URL(link);return new URLSearchParams(u.hash.replace(/^#/,''));}
+function readParams() {
+  const p = new URLSearchParams(location.hash.replace(/^#/,''));
+  const url = p.get('server')||'';
+  const key = p.get('key')||'';
+  if(!/^https:\/\/[a-z0-9-]+\.trycloudflare\.com\/?$/i.test(url)) return null;
+  if(!/^[a-zA-Z0-9_-]{40,60}$/.test(key)) return null;
+  return {url:url.replace(/\/$/,''),key};
 }
-function escapeError(err) { return err instanceof Error ? err.message : String(err || 'Nieznany błąd'); }
-function show(id, yes) { $(id).classList.toggle('hidden', !yes); }
-function setStatus(who, message, style='') {
-  $(who+'StatusText').textContent = message;
-  $(who+'Status').className = 'status'+(style ? ' '+style : '');
+function apiUrl(path){return state.base+path;}
+async function req(path,opt={}) {
+  if (!state.base || !state.key) throw Error('Nie połączono z komputerem.');
+  const headers = {...(opt.headers||{}),'X-Transfer-Key':state.key};
+  const res=await fetch(apiUrl(path),{...opt,headers,cache:'no-store'});
+  let data;
+  try {data=await res.json()} catch {throw Error('Brak prawidłowej odpowiedzi serwera. Sprawdź połączenie.');}
+  if(!res.ok) throw Error(data.error||('Błąd HTTP '+res.status));
+  return data;
 }
-function randomCode() {
-  const b = new Uint8Array(8);
-  crypto.getRandomValues(b);
-  return Array.from(b, x => ALPHABET[x % ALPHABET.length]).join('');
+function guestLink(){return SITE_URL+'#server='+encodeURIComponent(state.remote)+'&key='+encodeURIComponent(state.key);}
+function copy(text){if(navigator.clipboard?.writeText) return navigator.clipboard.writeText(text);const el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();document.execCommand('copy');el.remove();return Promise.resolve();}
+function initConnection() {
+  const info=readParams();
+  if (!info) {show('notConnected',true);return;}
+  state.remote=info.url;state.key=info.key;state.base=LOCAL?location.origin:info.url;
+  show('notConnected',false);show('connected',true);show('transferPanel',true);show('downloadsPanel',true);
+  if(LOCAL){
+    show('shareBox',true);
+    const link=guestLink();$('shareLink').textContent=link;
+    $('qr').textContent='';
+    if(window.QRCode){new QRCode($('qr'),{text:link,width:148,height:148,colorDark:'#07111c',colorLight:'#ffffff'});}
+    else {$('qr').textContent='Skopiuj link na telefon';}
+  }
+  refresh(true);
+  state.timer=setInterval(()=>{if(!document.hidden&&!state.busy)refresh(false)},5000);
 }
-function validCode(text) {
-  const x = String(text || '').trim().toUpperCase().replace(/[\s-]/g,'');
-  return x.length === 8 && [...x].every(c=>ALPHABET.includes(c)) ? x : null;
-}
-function makeLink(code) {
-  return location.origin + location.pathname + location.search + '#' + code;
-}
-function resetSite() {
-  try { state.conn?.close(); state.peer?.destroy(); } catch (_) {}
-  history.replaceState(null, '', location.pathname+location.search);
-  location.reload();
-}
-function initPeer(id) {
-  if (!window.Peer) throw new Error('Nie udało się załadować PeerJS. Sprawdź internet lub blokadę skryptów.');
-  if (!window.RTCPeerConnection) throw new Error('Ta przeglądarka nie obsługuje WebRTC.');
-  const peer = id ? new Peer(id, {debug:0}) : new Peer({debug:0});
-  state.peer = peer;
-  peer.on('error', (e) => {
-    const reason = e?.type === 'unavailable-id' ? 'Ten kod jest już zajęty. Rozpocznij od nowa.'
-      : e?.type === 'peer-unavailable' ? 'Nie znaleziono komputera o tym kodzie. Sprawdź kod i czy karta na komputerze jest otwarta.'
-      : e?.type === 'network' || e?.type === 'server-error' ? 'Błąd sieci lub serwera połączeń. Spróbuj ponownie.'
-      : 'Błąd połączenia: ' + escapeError(e);
-    setStatus(state.role === 'host' ? 'host' : 'guest', reason, 'error');
-    if (state.awaiting) { state.awaiting.reject(new Error(reason)); state.awaiting = null; }
-  });
-  peer.on('disconnected', () => {
-    if (!state.conn?.open) setStatus(state.role === 'host' ? 'host' : 'guest', 'Utracono kontakt z serwerem parowania. Odśwież stronę, jeśli nie można się połączyć.', 'error');
-  });
-  return peer;
-}
-
-function openHost() {
-  if (state.peer) return;
-  state.role = 'host';
-  state.code = randomCode();
-  show('choices', false); show('hostSession', true); show('guestSession', false);
-  $('roomCode').textContent = state.code;
-  const link = makeLink(state.code);
+async function refresh(initial=false) {
   try {
-    if (window.QRCode) new QRCode($('qr'), {text:link,width:148,height:148,colorDark:'#07111c',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
-    else $('qr').textContent = 'Podaj kod na telefonie';
-    const peer = initPeer(ROOM_PREFIX + state.code.toLowerCase());
-    peer.on('open', () => setStatus('host', 'Gotowe. Zeskanuj QR telefonem lub wpisz na nim kod.'));
-    peer.on('connection', conn => {
-      if (state.conn && state.conn.open) { conn.on('open',()=>conn.close()); return; }
-      bindConnection(conn, 'host');
-    });
-  } catch (err) { setStatus('host', escapeError(err), 'error'); }
+    const result=await req('/api/list');
+    state.connected=true;status('Połączono. Możesz przesyłać pliki w obie strony.','ok');
+    state.files=result.files||[];
+    renderFiles();
+  }catch(e){state.connected=false;status('Brak połączenia: '+e.message+' Sprawdź, czy program na komputerze nadal działa.','error');if(initial)$('fileList').textContent='Nie można pobrać listy plików.';}
 }
-
-function openGuest() {
-  show('choices', false); show('hostSession', false); show('guestSession', true);
-  $('joinCode').focus();
-}
-function joinRoom() {
-  if (state.peer) return;
-  const code = validCode($('joinCode').value);
-  if (!code) { setStatus('guest', 'Wpisz prawidłowy kod z 8 znaków.', 'error'); return; }
-  state.role = 'guest'; state.code = code;
-  $('joinCode').value = code;
-  $('joinCode').disabled = true; $('connectBtn').disabled = true;
-  setStatus('guest', 'Łączenie z komputerem...');
-  try {
-    const peer = initPeer(null);
-    peer.on('open', () => {
-      const conn = peer.connect(ROOM_PREFIX+code.toLowerCase(), {serialization:'raw',reliable:true});
-      bindConnection(conn, 'guest');
-    });
-  } catch (err) { setStatus('guest', escapeError(err), 'error'); $('joinCode').disabled=false; $('connectBtn').disabled=false; }
-}
-function sendControl(message) {
-  if (!state.conn?.open) throw new Error('Połączenie zostało przerwane.');
-  state.conn.send(JSON.stringify(message));
-}
-function bindConnection(conn, role) {
-  state.conn = conn;
-  state.approved = false;
-  conn.on('open', () => {
-    // Binary messages should arrive as ArrayBuffer, not Blob.
-    if (conn.dataChannel) conn.dataChannel.binaryType='arraybuffer';
-    if (role === 'host') {
-      show('approval', true);
-      setStatus('host', 'Nowe urządzenie prosi o dostęp. Zatwierdź połączenie na komputerze.');
-    } else setStatus('guest', 'Połączono. Czekam na zatwierdzenie na komputerze...');
-  });
-  conn.on('data', message => {
-    if (conn !== state.conn) return;
-    try { handleMessage(message); }
-    catch (err) {
-      setStatus(role === 'host' ? 'host' : 'guest', 'Błąd transferu: '+escapeError(err), 'error');
-      try { sendControl({t:'fail', id:state.incoming?.id, message:'Błąd odbierania pliku'}); } catch (_) {}
-    }
-  });
-  conn.on('close', () => onConnectionEnd(conn, 'Połączenie rozłączone.'));
-  conn.on('error', (err) => onConnectionEnd(conn, 'Błąd połączenia: '+escapeError(err)));
-}
-function onConnectionEnd(conn, why) {
-  if (conn !== state.conn) return;
-  state.conn = null; state.approved = false; state.incoming = null;
-  show('approval', false); show('senderPanel', false);
-  if (state.awaiting) {
-    const old=state.awaiting; state.awaiting=null; old.reject(new Error(why));
-  }
-  setStatus(state.role==='host'?'host':'guest', why + (state.role==='host'?' Możesz ponownie połączyć telefon tym samym kodem.':' Wróć i spróbuj ponownie.'), 'error');
-}
-function approve() {
-  if (!state.conn?.open) return;
-  state.approved = true;
-  sendControl({t:'approved'});
-  show('approval',false); show('senderPanel',true);
-  setStatus('host','Telefon połączony. Możesz wybierać i wysyłać pliki.','ok');
-}
-function reject() { state.conn?.close(); show('approval',false); setStatus('host','Odrzucono urządzenie. Oczekiwanie na inne połączenie.'); }
-
-function awaitMessage(expected, fileId, action, timeoutMs=60000) {
-  if (state.awaiting) throw new Error('Poprzednia operacja jeszcze trwa.');
-  return new Promise((resolve,reject) => {
-    const timer=setTimeout(()=>{
-      if (state.awaiting?.fileId===fileId && state.awaiting?.expected===expected) state.awaiting=null;
-      reject(new Error('Upłynął czas oczekiwania na odpowiedź telefonu.'));
-    }, timeoutMs);
-    state.awaiting = {expected,fileId,resolve:v=>{clearTimeout(timer);resolve(v);},reject:e=>{clearTimeout(timer);reject(e);}};
-    try { action(); } catch(err) { state.awaiting=null; clearTimeout(timer); reject(err); }
-  });
-}
-function resolvePending(message) {
-  const a=state.awaiting;
-  if (!a || a.expected !== message.t || a.fileId !== message.id) return;
-  state.awaiting=null;
-  a.resolve(message);
-}
-function rejectPending(message) {
-  const a=state.awaiting;
-  if (!a || (message.id && a.fileId !== message.id)) return;
-  state.awaiting=null;
-  a.reject(new Error(message.message || 'Telefon odrzucił plik.'));
-}
-function handleMessage(data) {
-  if (typeof data === 'string') {
-    const m=JSON.parse(data);
-    if (!m || typeof m.t!=='string') return;
-    if (m.t==='approved' && state.role==='guest') {
-      state.approved=true;
-      show('receiverPanel',true);
-      setStatus('guest','Połączono z komputerem. Oczekiwanie na pliki...','ok');
-    } else if (m.t==='begin' && state.role==='guest' && state.approved) {
-      beginReceive(m);
-    } else if (m.t==='end' && state.role==='guest' && state.approved) {
-      finishReceive(m);
-    } else if (m.t==='ack' && state.role==='host') {
-      if (m.id===state.currentFileId && Number.isFinite(m.n)) state.acknowledged=Math.max(state.acknowledged,m.n);
-    } else if (m.t==='ready' || m.t==='done') resolvePending(m);
-    else if (m.t==='fail') rejectPending(m);
-  } else if (state.role==='guest' && state.approved && data instanceof ArrayBuffer) {
-    receiveChunk(data);
+function renderFiles() {
+  const list=$('fileList');list.textContent='';
+  if(!state.files.length){const p=document.createElement('p');p.className='muted';p.textContent='Nie ma jeszcze plików. Wyślij pierwszy plik z telefonu albo komputera.';list.appendChild(p);return;}
+  for(const file of state.files){
+    const row=document.createElement('div');row.className='file';
+    const left=document.createElement('div');left.className='fname';
+    const name=document.createElement('div');name.textContent=file.name;left.appendChild(name);
+    const meta=document.createElement('div');meta.className='muted';meta.textContent=bytes(file.size);left.appendChild(meta);
+    const btn=document.createElement('button');btn.className='btn secondary';btn.textContent='Pobierz';
+    btn.onclick=async()=>{
+      btn.disabled=true;btn.textContent='Generuję link...';
+      try {const info=await req('/api/ticket',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:file.id})});location.href=apiUrl('/download/'+encodeURIComponent(info.ticket));}
+      catch(e){alert('Nie można pobrać pliku: '+e.message)}
+      finally{btn.disabled=false;btn.textContent='Pobierz';}
+    };
+    row.append(left,btn);list.appendChild(row);
   }
 }
-function makeRow(rootId,name,size,subtitle) {
-  const container=document.createElement('div'); container.className='fileitem';
-  const info=document.createElement('div'); info.className='fileinfo';
-  const label=document.createElement('div');label.className='filename';label.textContent=name;
-  const details=document.createElement('div');details.className='small';details.textContent=subtitle || bytesString(size);
-  const progress=document.createElement('div');progress.className='progress';
-  const bar=document.createElement('div');progress.appendChild(bar);
-  info.append(label,details,progress);container.appendChild(info);
-  $(rootId).appendChild(container);
-  return {container,details,progress,bar};
+function getFiles(filelist) {
+  if(state.busy)return;
+  state.filesToSend=Array.from(filelist||[]);
+  const list=$('selected');list.textContent='';
+  for(const f of state.filesToSend){const p=document.createElement('div');p.className='file';const x=document.createElement('div');x.className='fname';x.textContent=f.name+' · '+bytes(f.size);p.append(x);list.appendChild(p)}
+  $('uploadBtn').disabled=!state.filesToSend.length;$('clearBtn').disabled=!state.filesToSend.length;
 }
-function updateBar(row,received,total,label) {
-  const p=total ? Math.min(100,received/total*100):100;
-  row.bar.style.width=p.toFixed(2)+'%';
-  row.details.textContent=(label || '') + bytesString(received)+' / '+bytesString(total)+' · '+Math.floor(p)+'%';
-}
-function beginReceive(m) {
-  if (state.incoming) { sendControl({t:'fail',id:m.id,message:'Telefon odbiera już inny plik.'});return; }
-  if (typeof m.id !== 'string' || typeof m.n !== 'string' || !Number.isSafeInteger(m.s) || m.s<0) return;
-  if (m.n.length>255 || m.n.length<1) {sendControl({t:'fail',id:m.id,message:'Nieprawidłowa nazwa pliku.'});return;}
-  $('emptyIncoming')?.remove();
-  const row=makeRow('incomingList',m.n,m.s,'Odbieranie...');
-  state.incoming={id:m.id,name:m.n,size:m.s,mime:(typeof m.mime==='string'?m.mime:'application/octet-stream'),parts:[],bytes:0,lastAck:0,row};
-  setStatus('guest','Odbieranie: '+m.n,'ok');
-  sendControl({t:'ready',id:m.id});
-}
-function receiveChunk(buffer) {
-  const it=state.incoming;
-  if (!it) return;
-  if (it.bytes+buffer.byteLength > it.size) throw new Error('Przekroczono deklarowany rozmiar pliku.');
-  it.parts.push(buffer); it.bytes+=buffer.byteLength;
-  updateBar(it.row,it.bytes,it.size);
-  if (it.bytes-it.lastAck >= ACK_EVERY || it.bytes===it.size) {
-    it.lastAck=it.bytes;
-    sendControl({t:'ack',id:it.id,n:it.bytes});
-  }
-}
-function finishReceive(m) {
-  const it=state.incoming;
-  if (!it || it.id!==m.id) return;
-  if (it.bytes!==it.size) {
-    sendControl({t:'fail',id:it.id,message:'Niepełny plik. Odebrano '+bytesString(it.bytes)+' z '+bytesString(it.size)});
-    it.row.details.textContent='Błąd: niepełny transfer'; state.incoming=null; return;
-  }
-  // Browser Blob can wrap chunk buffers without immediately copying file bytes.
-  const blob=new Blob(it.parts,{type:it.mime});
-  const url=URL.createObjectURL(blob);state.savedUrls.push(url);
-  const actions=document.createElement('div');actions.className='fileactions';
-  const download=document.createElement('a');download.href=url;download.download=it.name;download.className='tinybtn';download.textContent='Pobierz';
-  actions.appendChild(download);
-  if (typeof navigator.share==='function') {
-    const share=document.createElement('button');share.type='button';share.className='tinybtn secondary';share.textContent='Udostępnij';
-    share.addEventListener('click',async()=>{
+function sha256Hex(buf) {return crypto.subtle.digest('SHA-256',buf).then(raw=>Array.from(new Uint8Array(raw)).map(b=>b.toString(16).padStart(2,'0')).join(''));}
+function updateProgress(n,total,label){show('progressBox',true);const pct=total===0?100:Math.min(100,Math.floor(n/total*100));$('progressBar').style.width=pct+'%';$('progressText').textContent=label+' — '+pct+'% ('+bytes(n)+' / '+bytes(total)+')';}
+async function transferFile(file,index,totalCount) {
+  const meta=await req('/api/start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:file.name,size:file.size})});
+  const chunkSize=Math.min(meta.chunk_size,2*1024*1024);
+  let offset=0;
+  while(offset<file.size){
+    const chunk=file.slice(offset,offset+chunkSize);
+    const digest=await sha256Hex(await chunk.arrayBuffer());
+    let done=false;
+    for(let attempt=0;attempt<4;attempt++){
       try {
-        const file=new File([blob],it.name,{type:it.mime});
-        if (navigator.canShare && !navigator.canShare({files:[file]})) {share.textContent='Użyj „Pobierz”';return;}
-        await navigator.share({files:[file]});
-      } catch (e) { if (e.name!=='AbortError') share.textContent='Użyj „Pobierz”'; }
-    });actions.appendChild(share);
-  }
-  it.row.container.appendChild(actions);
-  it.row.details.textContent='Gotowy · '+bytesString(it.size);
-  it.row.bar.style.width='100%';
-  state.incoming=null;
-  sendControl({t:'done',id:it.id});
-  setStatus('guest','Plik gotowy! Wybierz „Pobierz” lub „Udostępnij”.','ok');
-}
-
-function addFiles(fileList) {
-  if (state.sending) return;
-  state.files=Array.from(fileList || []);
-  const parent=$('selectedList');parent.replaceChildren();
-  for (const file of state.files) {
-    const r=makeRow('selectedList',file.name,file.size);
-    r.progress.classList.add('hidden');
-    r.container.dataset.name=file.name;
-  }
-  $('sendBtn').disabled=!state.files.length || !state.approved;
-  $('sendBtn').textContent=state.files.length? 'Wyślij ('+state.files.length+' '+(state.files.length===1?'plik':'pliki')+')':'Wyślij pliki na telefon';
-  $('senderHint').textContent=state.files.length?'Łączny rozmiar: '+bytesString(state.files.reduce((n,f)=>n+f.size,0)) : '';
-}
-function sleep(ms) {return new Promise(resolve=>setTimeout(resolve,ms));}
-async function flushBuffered() {
-  while (state.conn?.open && state.conn.dataChannel?.bufferedAmount>MAX_BUFFER) await sleep(12);
-  if (!state.conn?.open) throw new Error('Połączenie przerwane.');
-}
-async function waitForAck(maxSent) {
-  const start=Date.now();
-  while (maxSent-state.acknowledged>=SEND_WINDOW) {
-    if (!state.conn?.open) throw new Error('Połączenie przerwane.');
-    if (Date.now()-start>60000) throw new Error('Telefon nie potwierdza odbioru danych.');
-    await sleep(15);
-  }
-}
-async function sendSelected() {
-  if (state.sending || !state.files.length || !state.conn?.open || !state.approved) return;
-  state.sending=true; $('sendBtn').disabled=true; $('fileInput').disabled=true;
-  let index=0;
-  try {
-    for (const file of state.files) {
-      const row=$('selectedList').children[index++];
-      const details=row.querySelector('.small');
-      const bar=row.querySelector('.progress div');
-      row.querySelector('.progress').classList.remove('hidden');
-      const id=Array.from(crypto.getRandomValues(new Uint8Array(10)),x=>x.toString(16).padStart(2,'0')).join('');
-      state.currentFileId=id;state.acknowledged=0;
-      setStatus('host','Przesyłanie: '+file.name,'ok');
-      await awaitMessage('ready',id,()=>sendControl({t:'begin',id,n:file.name,s:file.size,mime:file.type || 'application/octet-stream'}));
-      let sent=0;
-      while (sent < file.size) {
-        await waitForAck(sent);
-        await flushBuffered();
-        const buffer=await file.slice(sent,sent+CHUNK_SIZE).arrayBuffer();
-        state.conn.send(buffer);
-        sent+=buffer.byteLength;
-        const pct=file.size ? Math.floor(sent/file.size*100):100;
-        bar.style.width=pct+'%';
-        details.textContent=bytesString(sent)+' / '+bytesString(file.size)+' · '+pct+'%';
+        const r=await req('/api/chunk/'+meta.id,{method:'PUT',headers:{'Content-Type':'application/octet-stream','X-Offset':String(offset),'X-Chunk-SHA256':digest},body:chunk});
+        offset=r.received;done=true;break;
+      }catch(e){
+        // A connection can drop after the server saves the chunk but before its reply reaches the client.
+        // Check the committed offset before retrying to avoid duplicate content.
+        try {const p=await req('/api/progress/'+meta.id);if(p.received>offset){offset=p.received;done=true;break;}}catch(_){/*retry*/}
+        if(attempt===3) throw e;
+        await new Promise(r=>setTimeout(r,800*(attempt+1)));
       }
-      await flushBuffered();
-      details.textContent='Czekam na potwierdzenie odbioru...';
-      await awaitMessage('done',id,()=>sendControl({t:'end',id}),120000);
-      bar.style.width='100%';details.textContent='Wysłano poprawnie · '+bytesString(file.size);
     }
-    setStatus('host','Wszystkie pliki zostały przesłane.','ok');
-  } catch(err) {
-    setStatus('host','Nie udało się ukończyć wysyłania: '+escapeError(err),'error');
-  } finally {
-    state.sending=false;state.currentFileId=null;
-    $('sendBtn').disabled=!state.conn?.open || !state.approved || !state.files.length;
-    $('fileInput').disabled=false;
+    if(!done)throw Error('Nie można przesłać fragmentu.');
+    updateProgress(offset,file.size,'Plik '+index+'/'+totalCount+': '+file.name);
   }
+  await req('/api/finish/'+meta.id,{method:'POST'});
 }
-
-$('makeRoom').addEventListener('click',openHost);
-$('joinView').addEventListener('click',openGuest);
-$('connectBtn').addEventListener('click',joinRoom);
-$('joinCode').addEventListener('keydown',e=>{if(e.key==='Enter') joinRoom();});
-$('copyLink').addEventListener('click',async()=>{
-  try {await navigator.clipboard.writeText(makeLink(state.code));$('copyLink').textContent='Skopiowano!';}
-  catch(_){prompt('Skopiuj link:',makeLink(state.code));}
-});
-$('copyCode').addEventListener('click',async()=>{
-  try {await navigator.clipboard.writeText(state.code);$('copyCode').textContent='Skopiowano!';}
-  catch(_){prompt('Skopiuj kod:',state.code);}
-});
-$('approveBtn').addEventListener('click',approve);
-$('rejectBtn').addEventListener('click',reject);
-$('sendBtn').addEventListener('click',sendSelected);
-$('dropzone').addEventListener('click',()=>$('fileInput').click());
-$('dropzone').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('fileInput').click();}});
-$('fileInput').addEventListener('change',e=>addFiles(e.target.files));
-for (const type of ['dragenter','dragover']) $('dropzone').addEventListener(type,e=>{e.preventDefault();$('dropzone').classList.add('drag');});
-for (const type of ['dragleave','drop']) $('dropzone').addEventListener(type,e=>{e.preventDefault();$('dropzone').classList.remove('drag');});
-$('dropzone').addEventListener('drop',e=>{if(e.dataTransfer?.files) addFiles(e.dataTransfer.files);});
-document.querySelectorAll('[data-reset]').forEach(b=>b.addEventListener('click',resetSite));
-window.addEventListener('pagehide',()=>{for(const url of state.savedUrls)URL.revokeObjectURL(url);});
-const hashCode=validCode(decodeURIComponent(location.hash.replace(/^#/,'')));
-if (hashCode) { $('joinCode').value=hashCode;openGuest();joinRoom(); }
-
-});
+async function upload() {
+  if(state.busy||!state.filesToSend?.length)return;
+  state.busy=true;$('uploadBtn').disabled=true;$('clearBtn').disabled=true;$('fileInput').disabled=true;
+  const files=state.filesToSend;
+  try{
+    for(let i=0;i<files.length;i++){
+      updateProgress(0,files[i].size,'Plik '+(i+1)+'/'+files.length+': '+files[i].name);
+      await transferFile(files[i],i+1,files.length);
+    }
+    $('progressText').textContent='Gotowe. Wszystkie pliki zostały w całości zapisane na komputerze.';
+    state.filesToSend=[];$('selected').textContent='';$('fileInput').value='';await refresh(false);
+  }catch(e){$('progressText').textContent='Błąd przesyłania: '+e.message+' Spróbuj ponownie.';status('Nie udało się przesłać wszystkich plików.','error');}
+  finally{state.busy=false;$('fileInput').disabled=false;$('uploadBtn').disabled=!state.filesToSend?.length;$('clearBtn').disabled=!state.filesToSend?.length;}
+}
+$('joinBtn').onclick=()=>{
+  try{
+    const p=linkParams($('pasteLink').value.trim());const server=p.get('server');const key=p.get('key');
+    if(!server||!key)throw Error('Wklej cały link z komputera, razem z częścią po znaku #.');
+    location.hash='server='+encodeURIComponent(server)+'&key='+encodeURIComponent(key);
+    location.reload();
+  }catch(e){show('joinError',true);$('joinErrorText').textContent=e.message;}
+};
+$('copyLink').onclick=()=>copy(guestLink()).then(()=>$('copyLink').textContent='Skopiowano!').catch(()=>alert('Nie można skopiować. Zaznacz link ręcznie.'));
+$('refreshBtn').onclick=()=>refresh();
+$('dropzone').onclick=()=>$('fileInput').click();
+$('dropzone').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('fileInput').click()}};
+$('dropzone').ondragover=e=>{e.preventDefault();$('dropzone').classList.add('drag')};
+$('dropzone').ondragleave=()=>$('dropzone').classList.remove('drag');
+$('dropzone').ondrop=e=>{e.preventDefault();$('dropzone').classList.remove('drag');getFiles(e.dataTransfer.files)};
+$('fileInput').onchange=() => getFiles($('fileInput').files);
+$('uploadBtn').onclick=upload;
+$('clearBtn').onclick=()=>{getFiles([]);$('fileInput').value='';show('progressBox',false)};
+document.addEventListener('DOMContentLoaded',initConnection);
+})();
 </script>
 </body>
 </html>
